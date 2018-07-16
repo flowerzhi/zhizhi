@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="ueditor.config.js"></script>
+		<script src="ueditor.all.js"></script>
+	</head>
+	<body>
+		<form action="server.php" method="post">
+			<textarea name="cont" id="content" style="width: 600px;height: 300px;"></textarea>
+			
+			<button>form表单 同步提交</button>
+			<button id="getBtn" type="button">ajax异步提交</button>
+		</form>
+	</body>
+</html>
+<script type="text/javascript">
+	var ue=UE.getEditor('content');
+	
+	document.getElementById("getBtn").onclick=function(){
+		var contend=ue.getContent();
+		
+		//$.ajax
+		
+		console.log(contend);
+		
+		//清空内容
+		ue.setContent("");
+	}
+	
+	
+</script>
